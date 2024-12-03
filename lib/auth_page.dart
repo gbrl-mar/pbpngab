@@ -158,7 +158,7 @@ class _SignUpFormState extends State<SignUpForm> {
     );
     if (picked != null && picked != _selectedDate) {
       setState(() {
-        _selectedDate = picked;
+        _selectedDate = picked; // Update the selected date
       });
     }
   }
@@ -198,13 +198,13 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
             const SizedBox(height: 16),
             GestureDetector(
-              onTap: () => _selectDate(context),
+              onTap: () => _selectDate(context), // Open date picker on tap
               child: AbsorbPointer(
                 child: TextField(
                   decoration: InputDecoration(
                     labelText: _selectedDate == null
                         ? 'Select Birthdate'
-                        : 'Birthdate: ${_selectedDate!.toLocal()}'.split(' ')[0],
+                        : 'Birthdate: ${_selectedDate!.toLocal().toString().split(' ')[0]}', // Format the date
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -336,6 +336,8 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 }
+
+
 
 class SocialButtons extends StatelessWidget {
   @override
